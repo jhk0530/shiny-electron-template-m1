@@ -9,9 +9,13 @@
 # Code format changed using styler::style_active_file()
 # CRAN link updated to el-capitan to big-sur(m1)
 
-library(automagic)
-
 options(repos = "https://cloud.r-project.org")
+
+if (!requireNamespace("automagic", quietly = TRUE)) {
+  install.packages("automagic")
+}
+
+library(automagic)
 
 cran_pkgs <- setdiff(unique(c("shiny", automagic::get_dependent_packages("shiny"))), "automagic")
 
